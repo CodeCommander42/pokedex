@@ -1,4 +1,8 @@
-alert("Hello World");
+ let pokemonList = [];
 
-let favoriteFood = "Steak";
-document.write(favoriteFood);
+ let pokemon1 =
+ {
+   name = "Pikachu";
+   height = 0.4;
+   type = ["electric"];
+ }

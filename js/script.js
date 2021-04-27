@@ -20,3 +20,11 @@
    height: 0.5;
    type: ["Water"];
  }
+
+document.write(pokemon1.name);
+
+/* for (let i = 0; i < pokemonList.length; i++)
+{
+  document.write(pokemonList[i].name + pokemonList[i].height);
+}
+*/

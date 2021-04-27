@@ -19,4 +19,4 @@
    name: "Squirtle";
    height: 0.5;
    type: ["Water"];
- }
+ 

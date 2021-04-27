@@ -2,29 +2,27 @@
 
  let pokemon1 =
  {
-   name: "Pikachu";
-   height: 0.4;
-   type: ["Electric"];
+   name: "Pikachu",
+   height: 0.4,
+   type: ["Electric"]
  }
 
  let pokemon2 =
  {
-   name: "Charmander";
-   height: 0.6;
-   type: ["Fire"];
+   name: "Charmander",
+   height: 0.6,
+   type: ["Fire"]
  }
 
  let pokemon3 =
  {
-   name: "Squirtle";
-   height: 0.5;
-   type: ["Water"];
+   name: "Squirtle",
+   height: 0.5,
+   type: ["Water"]
  }
 
-document.write(pokemon1.name);
-
-/* for (let i = 0; i < pokemonList.length; i++)
+ for (let i = 0; i < pokemonList.length; i++)
 {
   document.write(pokemonList[i].name + pokemonList[i].height);
 }
-*/
+

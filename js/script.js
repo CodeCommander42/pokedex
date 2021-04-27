@@ -20,3 +20,4 @@
    height: 0.5;
    type: ["Water"];
  }
+//exercise 3

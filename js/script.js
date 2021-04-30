@@ -1,3 +1,27 @@
+ 
+ let pokemonRepository = (function()
+ {
+   let pokemonList = [];
+
+   function add(pokemon)
+   {
+     pokemonList.push(pokemon);
+   }
+
+   function getAll()
+   {
+     document.write(pokemonList);
+   }
+
+   return
+   {
+     add: add,
+     getAll: getAll
+   };
+ })();
+
+
+ /*
  let pokemonList = 
  [
     {
@@ -16,9 +40,14 @@
       type: ["Water"]
     }
  ]
+*/
+
 
  pokemonList.forEach(function(pokemon)
  {
-   document.write(pokemon.name + " (" + pokemon.height + " ) ");
+   pokemonRepository.add(Pikachu);
+   pokemonRepository.add(Charmander);
+   pokemonRepository.add(Squirtle);
+   document.write(pokemonRepository.getAll());
  });
 

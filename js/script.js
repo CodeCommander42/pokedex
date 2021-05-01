@@ -1,26 +1,4 @@
  
- let pokemonRepository = (function()
- {
-   let pokemonList = [];
-
-   function add(pokemon)
-   {
-     pokemonList.push(pokemon);
-   }
-
-   function getAll()
-   {
-     document.write(pokemonList);
-   }
-
-   return
-   {
-     add: add,
-     getAll: getAll
-   };
- })();
-
-
  /*
  let pokemonList = 
  [
@@ -42,12 +20,28 @@
  ]
 */
 
+  let pokemonRepository = (function () {
+    let pokemonList = [];
+
+    function add(pokemon) {
+      pokemonList.push(pokemon);
+    }
+
+    function getAll() {
+      return pokemonList;
+    }
+
+    return {
+      add: add,
+      getAll: getAll
+    };
+  })();
 
  pokemonList.forEach(function(pokemon)
  {
    pokemonRepository.add(Pikachu);
-   pokemonRepository.add(Charmander);
-   pokemonRepository.add(Squirtle);
    document.write(pokemonRepository.getAll());
  });
+
+ 
 

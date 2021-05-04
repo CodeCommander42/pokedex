@@ -37,11 +37,9 @@
     };
   })();
 
- pokemonList.forEach(function(pokemon)
- {
-   pokemonRepository.add(Pikachu);
-   document.write(pokemonRepository.getAll());
- });
+  pokemonRepository.add(Pikachu);
 
+ pokemonRepository.pokemonList.forEach(function (pokemon) {
+  pokemonRepository.getAll();
+ })
  
-

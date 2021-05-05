@@ -54,9 +54,7 @@
     };
   })();
 
-  document.write(pokemonRepository.getAll());
-
- pokemonRepository.pokemonList.forEach(function (pokemon) {
+ pokemonRepository.getAll().forEach(function (pokemon) {
   document.write(pokemonRepository.getAll());
  })
  

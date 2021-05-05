@@ -1,24 +1,4 @@
- 
- /*
- let pokemonList = 
- [
-    {
-      name: "Pikachu",
-      height: 0.4,
-      type: ["Electric"]
-    },
-    {
-      name: "Charmander",
-      height: 0.6,
-      type: ["Fire"]
-    },
-    {
-      name: "Squirtle",
-      height: 0.5,
-      type: ["Water"]
-    }
- ]
-*/
+
 
   let pokemonRepository = (function () {
     let pokemonList = 
@@ -57,4 +37,6 @@
  pokemonRepository.getAll().forEach(function (pokemon) {
   document.write(pokemonRepository.getAll());
  })
+ 
+
  

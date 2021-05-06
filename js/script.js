@@ -20,6 +20,8 @@
        }
     ]
 
+    let i = 0;
+
     function add(pokemon) {
       pokemonList.push(pokemon);
     }
@@ -30,7 +32,6 @@
 
     function getOne()
     {
-      let i = 0;
       return pokemonList[i];
       i++;
     }

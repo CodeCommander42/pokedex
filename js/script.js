@@ -28,14 +28,22 @@
       return pokemonList;
     }
 
+    function getOne()
+    {
+      let i = 0;
+      return pokemonList[i];
+      i++;
+    }
+
     return {
       add: add,
-      getAll: getAll
+      getAll: getAll,
+      getOne: getOne
     };
   })();
 
  pokemonRepository.getAll().forEach(function (pokemon) {
-  document.write(pokemonRepository.getAll());
+  document.write(pokemonRepository.getOne());
  })
 
  //Exercise 5

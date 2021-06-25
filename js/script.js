@@ -33,7 +33,7 @@
       let titleElement = document.querySelector("#modal-title");
       titleElement.innerText = (pokemon.name);
       let textElement = document.querySelector("#modal-text");
-      textElement.innerText = ("height");
+      textElement.innerText = (pokemon.height);
       let myImage = document.createElement("img")
       myImage.src= pokemon.imgaeUrl;
       modalContainer.classList.add("is-visable");
@@ -101,6 +101,7 @@
       getAll: getAll,
       addListItem: addListItem,
       showDetails: showDetails,
+      hideDetails: hideDetails,
       loadList: loadList,
       loadDetails: loadDetails
     };

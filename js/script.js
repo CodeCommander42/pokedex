@@ -27,11 +27,22 @@
       })
     }
 
-    function showDetails(pokemon) {
-      loadDetails(pokemon).then(function () {
-        console.log(pokemon);
-      });
+    function showDetails(pokemon)
+    {
+      let modalContainer = document.querySelector("#modal-container");
+      modalContainer.classList.add("is-visable");
     }
+
+    function hideDetails()
+    {
+      let modalContainer = document.querySelector("#modal-container");
+      modalContainer.classList.remove("is-visable");
+    }
+
+    document.querySelector("#modal-close").addEventListener("click", () => 
+    {
+      hideDetails();
+    })
 
     function loadList() {
       return fetch(apiUrl).then(function (response) {

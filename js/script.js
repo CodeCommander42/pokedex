@@ -3,6 +3,7 @@
   let pokemonRepository = (function () {
     let pokemonList = [];
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/";
+    let modalContainer = document.querySelector("#modal-container");
 
     function add(pokemon) {
       pokemonList.push(pokemon);
@@ -29,20 +30,37 @@
 
     function showDetails(pokemon)
     {
-      let modalContainer = document.querySelector("#modal-container");
+      let titleElement = document.querySelector("h1");
+      titleElement.innerText = (" ");
       modalContainer.classList.add("is-visable");
     }
 
     function hideDetails()
     {
-      let modalContainer = document.querySelector("#modal-container");
       modalContainer.classList.remove("is-visable");
     }
 
     document.querySelector("#modal-close").addEventListener("click", () => 
     {
       hideDetails();
-    })
+    });
+
+    window.addEventListener("keydown", (e) => 
+    {
+      if (e.key === "Escape" && modalContainer.classList.contains("is-visable"))
+      {
+        hideDetails();
+      }
+    });
+
+    modalContainer.addEventListener("click", (e) =>
+    {
+      let target = e.target;
+      if (target === modalContainer)
+      {
+        hideDetails();
+      }
+    });
 
     function loadList() {
       return fetch(apiUrl).then(function (response) {

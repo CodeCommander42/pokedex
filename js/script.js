@@ -30,8 +30,12 @@
 
     function showDetails(pokemon)
     {
-      let titleElement = document.querySelector("h1");
-      titleElement.innerText = (" ");
+      let titleElement = document.querySelector("#modal-title");
+      titleElement.innerText = (pokemon.name);
+      let textElement = document.querySelector("#modal-text");
+      textElement.innerText = ("height");
+      let myImage = document.createElement("img")
+      myImage.src= pokemon.imgaeUrl;
       modalContainer.classList.add("is-visable");
     }
 
@@ -69,7 +73,8 @@
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
-            detailsUrl: item.url
+            detailsUrl: item.url,
+            height: item.height
           };
           add(pokemon);
         });

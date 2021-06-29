@@ -83,8 +83,8 @@
       })
     }
 
-    function loadDetails(item) {
-      let url = item.detailsUrl;
+    function loadDetails(item, pokemon) {
+      let url = pokemon.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
@@ -108,8 +108,10 @@
   })();
 
   pokemonRepository.loadList().then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon){
-      pokemonRepository.addListItem(pokemon);
+    pokemonRepository.loadDetails().then(function() {
+      pokemonRepository.getAll().forEach(function(pokemon){
+        pokemonRepository.addListItem(pokemon);
+    })
     });
   });
   

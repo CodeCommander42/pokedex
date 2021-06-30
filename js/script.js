@@ -5,6 +5,18 @@
     let apiUrl = "https://pokeapi.co/api/v2/pokemon/";
     let modalContainer = document.querySelector("#modal-container");
 
+    let modalClose = document.createElement("button");
+    modalClose.classList.add("modal-close");
+    let pokemonName = document.createElement("h1");
+    pokemonName.classList.add("pokemonName");
+    let pokemonHeight = document.createElement("p");
+    pokemonHeight.classList.add("pokemonHeight");
+    let imageContainer = document.createElement("div");
+    imageContainer.classList.add("imageContainer");
+    let pokemonImage = document.createElement("img");
+    pokemonImage.classList.add("pokemonIamge");
+
+
     function add(pokemon) {
       pokemonList.push(pokemon);
     }
@@ -31,29 +43,26 @@
     function showDetails(pokemon)
     {
       loadDetails(pokemon).then(function() {
-        let titleElement = document.querySelector("#modal-title");
-        titleElement.innerText = (pokemon.name);
-        let textElement = document.querySelector("#modal-text");
-        textElement.innerText = "Height: " + pokemon.height;
-        let pokemonImage = document.createElement("img");
-        pokemonImage.classList.add("pokemonImage");
+        pokemonName.innerHTML = pokemon.name;
+        pokemonHeight.innerHTML = "Height: " + pokemon.height;
         pokemonImage.src = pokemon.imageUrl;
-        let imageContainer = document.createElement("div");
-        modal.appendChild(imageContainer);
-        imageContainer.appendChild(pokemonImage);
+        modalClose.innerHTML = "Close";
         modalContainer.classList.add("is-visable");
       })
     }
+
+    modal.appendChild(modalClose);
+    modal.appendChild(pokemonName);
+    modal.appendChild(pokemonHeight);
+    modal.appendChild(imageContainer);
+    imageContainer.appendChild(pokemonImage);
 
     function hideDetails()
     {
       modalContainer.classList.remove("is-visable");
     }
 
-    document.querySelector("#modal-close").addEventListener("click", () => 
-    {
-      hideDetails();
-    });
+    modalClose.addEventListener('click' , hideDetails);
 
     window.addEventListener("keydown", (e) => 
     {

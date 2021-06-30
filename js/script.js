@@ -16,7 +16,6 @@
     let pokemonImage = document.createElement("img");
     pokemonImage.classList.add("pokemonIamge");
 
-
     function add(pokemon) {
       pokemonList.push(pokemon);
     }
@@ -47,15 +46,14 @@
         pokemonHeight.innerHTML = "Height: " + pokemon.height;
         pokemonImage.src = pokemon.imageUrl;
         modalClose.innerHTML = "Close";
+        modal.appendChild(modalClose);
+        modal.appendChild(pokemonName);
+        modal.appendChild(pokemonHeight);
+        modal.appendChild(imageContainer);
+        imageContainer.appendChild(pokemonImage);
         modalContainer.classList.add("is-visable");
       })
     }
-
-    modal.appendChild(modalClose);
-    modal.appendChild(pokemonName);
-    modal.appendChild(pokemonHeight);
-    modal.appendChild(imageContainer);
-    imageContainer.appendChild(pokemonImage);
 
     function hideDetails()
     {

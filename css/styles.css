@@ -3,6 +3,12 @@ body {
   font-family: Arial, sans-serif;
 }
 
+.container
+{
+  display: grid;
+  justify-content: center;
+}
+
 #modal-container {
   position: fixed;
   padding: 20px;
@@ -60,3 +66,19 @@ body {
 {
   display: block;
 }
+
+.pokemonName
+{
+  text-align: center;
+}
+
+.pokemonHeight
+{
+  text-align: center;
+}
+
+.imageContainer
+{
+  text-align: center;
+}
+

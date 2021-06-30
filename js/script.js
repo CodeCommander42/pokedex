@@ -124,3 +124,5 @@
       pokemonRepository.addListItem(pokemon);
     })
   })
+
+  //exercise 8

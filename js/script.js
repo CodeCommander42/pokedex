@@ -2,15 +2,17 @@
 
   let pokemonRepository = (function () {
     let pokemonList = [];
-    let apiUrl = "https://pokeapi.co/api/v2/pokemon/";
+    let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=200";
     let modalContainer = document.querySelector("#modal-container");
 
     let modalClose = document.createElement("button");
     modalClose.classList.add("modal-close");
     let pokemonName = document.createElement("h1");
     pokemonName.classList.add("pokemonName");
-    let pokemonHeight = document.createElement("p");
+    let pokemonHeight = document.createElement("h2");
     pokemonHeight.classList.add("pokemonHeight");
+    let pokemonType = document.createElement("h2");
+    pokemonType.classList.add("pokemonType");
     let imageContainer = document.createElement("div");
     imageContainer.classList.add("imageContainer");
     let pokemonImage = document.createElement("img");
@@ -42,13 +44,15 @@
     function showDetails(pokemon)
     {
       loadDetails(pokemon).then(function() {
-        pokemonName.innerHTML = pokemon.name;
+        pokemonName.innerHTML = pokemon.name.toUpperCase();
         pokemonHeight.innerHTML = "Height: " + pokemon.height;
+        pokemonType.innerHTML = "Type: " + pokemon.type;
         pokemonImage.src = pokemon.imageUrl;
         modalClose.innerHTML = "Close";
         modal.appendChild(modalClose);
         modal.appendChild(pokemonName);
         modal.appendChild(pokemonHeight);
+        modal.appendChild(pokemonType);
         modal.appendChild(imageContainer);
         imageContainer.appendChild(pokemonImage);
         modalContainer.classList.add("is-visable");
@@ -102,7 +106,7 @@
       }).then(function (details) {
         item.imageUrl = details.sprites.front_default;
         item.height = details.height;
-        item.types = details.types;
+        item.type = details.types[0].type.name;
       }).catch(function (e) {
         console.error(e);
       });

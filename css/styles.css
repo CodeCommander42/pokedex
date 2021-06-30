@@ -24,7 +24,7 @@ body {
   text-align: center;
 }
 
-.modal {
+#modal {
   margin: auto;
   display: inline-block;
   box-sizing: border-box;
@@ -44,11 +44,11 @@ body {
   text-decoration: underline;
 }
 
-.modal h1 {
+#modal h1 {
   margin-top: 0;
 }
 
-.modal p {
+#modal p {
   margin-bottom: 0;
 }
 

@@ -30,13 +30,19 @@
 
     function showDetails(pokemon)
     {
-      let titleElement = document.querySelector("#modal-title");
-      titleElement.innerText = (pokemon.name);
-      let textElement = document.querySelector("#modal-text");
-      textElement.innerText = (pokemon.height);
-      let myImage = document.createElement("img")
-      myImage.src= pokemon.imageUrl;
-      modalContainer.classList.add("is-visable");
+      loadDetails(pokemon).then(function() {
+        let titleElement = document.querySelector("#modal-title");
+        titleElement.innerText = (pokemon.name);
+        let textElement = document.querySelector("#modal-text");
+        textElement.innerText = "Height: " + pokemon.height;
+        let pokemonImage = document.createElement("img");
+        pokemonImage.classList.add("pokemonImage");
+        pokemonImage.src = pokemon.imageUrl;
+        let imageContainer = document.createElement("div");
+        modal.appendChild(imageContainer);
+        imageContainer.appendChild(pokemonImage);
+        modalContainer.classList.add("is-visable");
+      })
     }
 
     function hideDetails()
@@ -73,8 +79,7 @@
         json.results.forEach(function (item) {
           let pokemon = {
             name: item.name,
-            detailsUrl: item.url,
-            height: item.height
+            detailsUrl: item.url
           };
           add(pokemon);
         });
@@ -83,8 +88,8 @@
       })
     }
 
-    function loadDetails(item, pokemon) {
-      let url = pokemon.detailsUrl;
+    function loadDetails(item) {
+      let url = item.detailsUrl;
       return fetch(url).then(function (response) {
         return response.json();
       }).then(function (details) {
@@ -108,16 +113,7 @@
   })();
 
   pokemonRepository.loadList().then(function() {
-    pokemonRepository.getAll().forEach(function(pokemon){
+    pokemonRepository.getAll().forEach(function(pokemon) {
       pokemonRepository.addListItem(pokemon);
     })
   })
-
-  // pokemonRepository.loadList().then(function() {
-  //   pokemonRepository.loadDetails().then(function() {
-  //     pokemonRepository.getAll().forEach(function(pokemon){
-  //       pokemonRepository.addListItem(pokemon);
-  //   })
-  //   });
-  // });
-  

@@ -36,7 +36,7 @@
       button.innerText = pokemon.name;
       button.classList.add("button-class");
       button.classList.add("btn");
-      button.classList.add("btn-outline-danger")
+      button.classList.add("btn-outline-danger");
       listItem.appendChild(button);
       pokemonGroup.appendChild(listItem);
       button.addEventListener("click", function ()
@@ -45,6 +45,27 @@
       })
     }
 
+    function showDetails(pokemon)
+    {
+      let modalBody = $(".modal-body");
+      let modalTitle = $(".modal-title");
+      let modalHeader = $(".modal-header");
+
+      modalTitle.empty();
+      modalBody.empty();
+
+      loadDetails(pokemon).then(function() 
+      {
+        pokemonName.innerHTML = pokemon.name.toUpperCase();
+        pokemonHeight.innerHTML = "height: " + pokemon.height;
+        pokemonImage.src = pokemon.imageUrl;
+        modalTitle.append(pokemonName);
+        modalBody.append(pokemonHeight);
+        modalBody.append(pokemonImage);
+      })
+    }
+
+    /*
     function showDetails(pokemon)
     {
       loadDetails(pokemon).then(function() {
@@ -62,6 +83,7 @@
         modalContainer.classList.add("is-visable");
       })
     }
+    */
 
     function hideDetails()
     {

@@ -82,6 +82,14 @@ body {
   text-align: center;
 }
 
+.pokemonImage
+{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 35%;
+}
+
 .imageContainer
 {
   text-align: center;

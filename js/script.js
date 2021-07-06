@@ -30,11 +30,13 @@
     {
       let pokemonGroup = document.querySelector(".pokemon-list");
       let listItem = document.createElement("li");
-      listItem.classList.add("list-group-item");
+      listItem.classList.add("group-list-item");
       listItem.classList.add("col-2")
       let button = document.createElement("button");
       button.innerText = pokemon.name;
       button.classList.add("button-class");
+      button.classList.add("btn");
+      button.classList.add("btn-outline-danger")
       listItem.appendChild(button);
       pokemonGroup.appendChild(listItem);
       button.addEventListener("click", function ()
